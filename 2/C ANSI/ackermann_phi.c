@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <time.h>
 
 int ackermann_phi(int m, int n, int p) {
     if (p == 0) return m + n;
@@ -10,7 +11,24 @@ int ackermann_phi(int m, int n, int p) {
 }
 
 int main() {
-    int m = 2, n = 3, p = 4;
-    printf("φ(%d, %d, %d) = %d\n", m, n, p, ackermann_phi(m, n, p));
+    int m, n, p;
+    clock_t ini, fim;
+    double cpu_usado;
+
+    for (m = 0; m <= 2; ++m) {
+        for (n = 0; n <= 3; ++n) {
+            for (p = 0; p <= 4; ++p) {
+                ini = clock();
+                int resultado = ackermann_phi(m, n, p);
+                fim = clock();
+                cpu_usado = ((double) (fim - ini)) / CLOCKS_PER_SEC;
+                if (cpu_usado < 60.0) {
+                    printf("φ(%d, %d, %d) = %d (calculado em %f segundos)\n", m, n, p, resultado, cpu_usado);
+                } else {
+                    printf("φ(%d, %d, %d) excedeu o limite de tempo\n", m, n, p);
+                }
+            }
+        }
+    }
     return 0;
 }
