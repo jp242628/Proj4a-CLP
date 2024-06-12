@@ -1,10 +1,10 @@
 // QuickSort.java
 
 public class QuickSort {
-    int partition(int arr[], int low, int high) {
-        int pivot = arr[high];
-        int i = (low-1);
-        for (int j=low; j<high; j++) {
+    int partition(int arr[], int baixo, int alto) {
+        int pivot = arr[alto];
+        int i = (baixo-1);
+        for (int j=baixo; j<alto; j++) {
             if (arr[j] <= pivot) {
                 i++;
                 int temp = arr[i];
@@ -13,16 +13,16 @@ public class QuickSort {
             }
         }
         int temp = arr[i+1];
-        arr[i+1] = arr[high];
-        arr[high] = temp;
+        arr[i+1] = arr[alto];
+        arr[alto] = temp;
         return i+1;
     }
 
-    void sort(int arr[], int low, int high) {
-        if (low < high) {
-            int pi = partition(arr, low, high);
-            sort(arr, low, pi-1);
-            sort(arr, pi+1, high);
+    void sort(int arr[], int baixo, int alto) {
+        if (baixo < alto) {
+            int pi = partition(arr, baixo, alto);
+            sort(arr, baixo, pi-1);
+            sort(arr, pi+1, alto);
         }
     }
 
