@@ -1,4 +1,4 @@
-public class Ackermann_a {
+public class Ackermann {
 
     public static int ackermannA(int m, int n) {
         if (m == 0) return n + 1;

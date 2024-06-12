@@ -1,4 +1,4 @@
-public class Ackermann_phi {
+public class Ackermann {
 
     public static int ackermannPhi(int m, int n, int p) {
         if (p == 0) return m + n;
