@@ -16,6 +16,7 @@
         ((funcall pred (car l1) (car l2))
         (cons (car l1) (merge (cdr l1) l2 pred)))
         (t (cons (car l2) (merge l1 (cdr l2) pred)))))
-
+(progn
 (format t "Lista original: ~a~%" '(5 3 1 2 4))
 (format t "Merge sort: ~a~%" (merge-sort '(5 3 1 2 4))))
+)
